@@ -27,4 +27,11 @@ Riproduzione del layout di WhatsApp in modalità responsive e inserimento elemen
 2. Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
 ## Svolgimento
-1. Eliminare il markup statico delle chat in chat-list e attraverso un v-for stamparle dinamicamente
+
+1. Eliminare il markup statico delle chat in chat-list e attraverso un ciclo v-for stamparle dinamicamente
+2. Eliminare il markup statico dei messaggi nel pannello della conversazione e attraverso un ciclo v-for stampare dinamicamente tutti i messaggi
+3. Dichiarare in data una variabile activeContactId che servirà per indicare il contatto 'attivo' di cui mostrare i messaggi nel pannello della conversazione. Di dafault, il contatto 'attivo' sarà quello ad indice 0
+4. Nel ciclo v-for di stampa delle chat (punto 1), passare anche l'indice di ogni contatto (contactId)
+5. Al @click sul contatto, la variabile activeContactId assumerà il valore di contactId
+6. Al ciclo di stampa dei messaggi (punto 2), passare come indice dell'array contacts il valore di activeContactId
+7. Sopra i messaggi nel pannello della conversazione, passare dinamicamente le proprietà del contatto 'attivo' activeContactId

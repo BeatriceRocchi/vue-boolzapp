@@ -79,7 +79,8 @@
               <!-- Chat list item -->
               <div
                 class="chat-preview container-sm"
-                v-for="contact in contacts"
+                v-for="(contact, contactId) in contacts"
+                @click="activeContactId = contactId"
               >
                 <div class="photo">
                   <img
@@ -107,12 +108,20 @@
             <div class="chat-selected container-sm">
               <div class="chat-info">
                 <div class="photo">
-                  <img src="./assets/img/avatar_1.jpg" alt="Avatar 1" />
+                  <img
+                    :src="`./assets/${contacts[activeContactId].avatar}`"
+                    :alt="contacts[activeContactId].name"
+                  />
                 </div>
                 <div>
-                  <div class="chat-name"><strong>Michele</strong></div>
+                  <div class="chat-name">
+                    <strong>{{contacts[activeContactId].name}}</strong>
+                  </div>
+                  <!-- TODO: sistemare formato data ultimo messaggio -->
                   <div class="last-access text-sm">
-                    Ultimo accesso oggi alle 16:26
+                    Ultimo accesso oggi alle
+                    {{contacts[activeContactId].messages[contacts[activeContactId].messages.length
+                    -1].date}}
                   </div>
                 </div>
               </div>
@@ -128,79 +137,15 @@
 
             <!-- Chat -->
             <div class="chat">
-              <div class="msg sent">
+              <div
+                v-for="messageItem in contacts[activeContactId].messages"
+                class="msg"
+                :class="(messageItem.status === 'sent' ? 'sent' : 'received')"
+              >
                 <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
-                    Voluptas itaque deleniti, minus ipsa quo nam libero
-                    aspernatur officia obcaecati vero dolor, eveniet
-                    reprehenderit.
-                  </p>
-                  <div class="msg-hour text-xs">16:13</div>
-                </div>
-                <div class="msg-option">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <div class="msg-info text-sm active">
-                    <div>Info messaggio</div>
-                    <div>Cancella messaggio</div>
-                  </div>
-                </div>
-                <div class="msg-arrow"></div>
-              </div>
-
-              <div class="msg received">
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
-                    Voluptas itaque deleniti, minus ipsa quo nam libero
-                    aspernatur officia obcaecati vero dolor, eveniet
-                    reprehenderit.
-                  </p>
-                  <div class="msg-hour text-xs">16:15</div>
-                </div>
-                <div class="msg-option">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <div class="msg-info text-sm active">
-                    <div>Info messaggio</div>
-                    <div>Cancella messaggio</div>
-                  </div>
-                </div>
-                <div class="msg-arrow"></div>
-              </div>
-
-              <div class="msg received">
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
-                    Voluptas itaque deleniti, minus ipsa quo nam libero
-                    aspernatur officia obcaecati vero dolor, eveniet
-                    reprehenderit.
-                  </p>
-                  <div class="msg-hour text-xs">16:18</div>
-                </div>
-                <div class="msg-option">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <div class="msg-info text-sm active">
-                    <div>Info messaggio</div>
-                    <div>Cancella messaggio</div>
-                  </div>
-                </div>
-                <div class="msg-arrow"></div>
-              </div>
-
-              <div class="msg sent">
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
-                    Voluptas itaque deleniti, minus ipsa quo nam libero
-                    aspernatur officia obcaecati vero dolor, eveniet
-                    reprehenderit.
-                  </p>
-                  <div class="msg-hour text-xs">16:25</div>
+                  <p>{{messageItem.message}}</p>
+                  <!-- TODO: sistemare formato data ultimo messaggio -->
+                  <div class="msg-hour text-xs">{{messageItem.date}}</div>
                 </div>
                 <div class="msg-option">
                   <i class="fa-solid fa-chevron-down"></i>

@@ -6,6 +6,7 @@ createApp({
   data() {
     return {
       contacts,
+      activeContactId: 0,
     };
   },
 }).mount("#app");
