@@ -76,115 +76,26 @@
 
             <!-- Chat list -->
             <div class="chat-list">
-              <!-- Chat list 1 -->
-              <div class="chat-preview container-sm">
+              <!-- Chat list item -->
+              <div
+                class="chat-preview container-sm"
+                v-for="contact in contacts"
+              >
                 <div class="photo">
-                  <img src="./assets/img/avatar_1.jpg" alt="Avatar 1" />
+                  <img
+                    :src="`./assets/${contact.avatar}`"
+                    :alt="contact.name"
+                  />
                 </div>
                 <div class="chat-textbox">
-                  <div class="chat-name"><strong>Michele</strong></div>
+                  <div class="chat-name"><strong>{{contact.name}}</strong></div>
                   <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
+                    {{contact.messages[contact.messages.length - 1].message}}
                   </div>
-                  <div class="chat-hour text-sm container-sm">16:26</div>
-                </div>
-              </div>
-
-              <!-- Chat list 2 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_2.jpg" alt="Avatar 2" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Fabio</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
+                  <!-- TODO: sistemare formato data ultimo messaggio -->
+                  <div class="chat-hour text-sm container-sm">
+                    {{contact.messages[contact.messages.length - 1].date}}
                   </div>
-                  <div class="chat-hour text-sm container-sm">16:05</div>
-                </div>
-              </div>
-
-              <!-- Chat list 3 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_3.jpg" alt="Avatar 3" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Samuele</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">16:03</div>
-                </div>
-              </div>
-
-              <!-- Chat list 4 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_4.jpg" alt="Avatar 4" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Alessandro B.</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">15:50</div>
-                </div>
-              </div>
-
-              <!-- Chat list 5 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_5.jpg" alt="Avatar 5" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Alessandro L.</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">15:45</div>
-                </div>
-              </div>
-
-              <!-- Chat list 6 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_6.jpg" alt="Avatar 6" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Claudia</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">15:40</div>
-                </div>
-              </div>
-
-              <!-- Chat list 7 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_7.jpg" alt="Avatar 7" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Federico</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">15:22</div>
-                </div>
-              </div>
-
-              <!-- Chat list 8 -->
-              <div class="chat-preview container-sm">
-                <div class="photo">
-                  <img src="./assets/img/avatar_8.jpg" alt="Avatar 8" />
-                </div>
-                <div class="chat-textbox">
-                  <div class="chat-name"><strong>Davide</strong></div>
-                  <div class="chat-text text-sm">
-                    Lorem ipsum dolor sit amet
-                  </div>
-                  <div class="chat-hour text-sm container-sm">15:15</div>
                 </div>
               </div>
             </div>

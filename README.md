@@ -25,3 +25,6 @@ Riproduzione del layout di WhatsApp in modalità responsive e inserimento elemen
 
 1. Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato
 2. Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+
+## Svolgimento
+1. Eliminare il markup statico delle chat in chat-list e attraverso un v-for stamparle dinamicamente
