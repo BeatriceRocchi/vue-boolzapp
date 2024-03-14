@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+    />
+
+    <!-- VueJS -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="./assets/style/style.css" />
+
+    <title>Boolzapp</title>
+  </head>
+  <body>
+    <!-- Note: Insert in the body the class="darkmode" to change the view -->
+    <div id="app">
+      <main>
+        <div class="container">
+          <!-- Left -->
+          <div class="left">
+            <!-- User -->
+            <div class="user container-sm">
+              <div class="photo">
+                <img src="./assets/img/avatar_io.jpg" alt="User photo" />
+              </div>
+              <nav class="menu-box">
+                <ul class="menu">
+                  <li><i class="fa-solid fa-circle-notch"></i></li>
+                  <li><i class="fa-solid fa-message"></i></li>
+                  <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                </ul>
+              </nav>
+            </div>
+            <!-- / User -->
+
+            <!-- Notification -->
+            <div class="notification container-sm">
+              <i class="fa-solid fa-bell-slash"></i>
+              <div>
+                <div><strong>Ricevi notifiche di nuovi messaggi</strong></div>
+                <div class="text-sm text-underline">
+                  <strong>Attiva notifiche desktop</strong>
+                </div>
+              </div>
+            </div>
+            <!-- / Notification -->
+
+            <!-- Searchbox -->
+            <div class="searchbox">
+              <div class="searchbar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input
+                  type="text"
+                  placeholder="Cerca o inizia una nuova chat"
+                />
+              </div>
+            </div>
+            <!-- / Searchbox -->
+
+            <!-- Chat list -->
+            <div class="chat-list">
+              <!-- Chat list 1 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_1.jpg" alt="Avatar 1" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Michele</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">16:26</div>
+                </div>
+              </div>
+
+              <!-- Chat list 2 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_2.jpg" alt="Avatar 2" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Fabio</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">16:05</div>
+                </div>
+              </div>
+
+              <!-- Chat list 3 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_3.jpg" alt="Avatar 3" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Samuele</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">16:03</div>
+                </div>
+              </div>
+
+              <!-- Chat list 4 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_4.jpg" alt="Avatar 4" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Alessandro B.</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">15:50</div>
+                </div>
+              </div>
+
+              <!-- Chat list 5 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_5.jpg" alt="Avatar 5" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Alessandro L.</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">15:45</div>
+                </div>
+              </div>
+
+              <!-- Chat list 6 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_6.jpg" alt="Avatar 6" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Claudia</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">15:40</div>
+                </div>
+              </div>
+
+              <!-- Chat list 7 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_7.jpg" alt="Avatar 7" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Federico</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">15:22</div>
+                </div>
+              </div>
+
+              <!-- Chat list 8 -->
+              <div class="chat-preview container-sm">
+                <div class="photo">
+                  <img src="./assets/img/avatar_8.jpg" alt="Avatar 8" />
+                </div>
+                <div class="chat-textbox">
+                  <div class="chat-name"><strong>Davide</strong></div>
+                  <div class="chat-text text-sm">
+                    Lorem ipsum dolor sit amet
+                  </div>
+                  <div class="chat-hour text-sm container-sm">15:15</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right -->
+          <div class="right">
+            <!-- Chat selected info -->
+            <div class="chat-selected container-sm">
+              <div class="chat-info">
+                <div class="photo">
+                  <img src="./assets/img/avatar_1.jpg" alt="Avatar 1" />
+                </div>
+                <div>
+                  <div class="chat-name"><strong>Michele</strong></div>
+                  <div class="last-access text-sm">
+                    Ultimo accesso oggi alle 16:26
+                  </div>
+                </div>
+              </div>
+              <nav class="menu-box">
+                <ul class="menu">
+                  <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                  <li><i class="fa-solid fa-paperclip"></i></li>
+                  <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
+                </ul>
+              </nav>
+            </div>
+            <!-- / Chat selected info -->
+
+            <!-- Chat -->
+            <div class="chat">
+              <div class="msg sent">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
+                    Voluptas itaque deleniti, minus ipsa quo nam libero
+                    aspernatur officia obcaecati vero dolor, eveniet
+                    reprehenderit.
+                  </p>
+                  <div class="msg-hour text-xs">16:13</div>
+                </div>
+                <div class="msg-option">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="msg-info text-sm active">
+                    <div>Info messaggio</div>
+                    <div>Cancella messaggio</div>
+                  </div>
+                </div>
+                <div class="msg-arrow"></div>
+              </div>
+
+              <div class="msg received">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
+                    Voluptas itaque deleniti, minus ipsa quo nam libero
+                    aspernatur officia obcaecati vero dolor, eveniet
+                    reprehenderit.
+                  </p>
+                  <div class="msg-hour text-xs">16:15</div>
+                </div>
+                <div class="msg-option">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="msg-info text-sm active">
+                    <div>Info messaggio</div>
+                    <div>Cancella messaggio</div>
+                  </div>
+                </div>
+                <div class="msg-arrow"></div>
+              </div>
+
+              <div class="msg received">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
+                    Voluptas itaque deleniti, minus ipsa quo nam libero
+                    aspernatur officia obcaecati vero dolor, eveniet
+                    reprehenderit.
+                  </p>
+                  <div class="msg-hour text-xs">16:18</div>
+                </div>
+                <div class="msg-option">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="msg-info text-sm active">
+                    <div>Info messaggio</div>
+                    <div>Cancella messaggio</div>
+                  </div>
+                </div>
+                <div class="msg-arrow"></div>
+              </div>
+
+              <div class="msg sent">
+                <div>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Corrupti nostrum, quis ipsa temporibus est exercitationem.
+                    Voluptas itaque deleniti, minus ipsa quo nam libero
+                    aspernatur officia obcaecati vero dolor, eveniet
+                    reprehenderit.
+                  </p>
+                  <div class="msg-hour text-xs">16:25</div>
+                </div>
+                <div class="msg-option">
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <div class="msg-info text-sm active">
+                    <div>Info messaggio</div>
+                    <div>Cancella messaggio</div>
+                  </div>
+                </div>
+                <div class="msg-arrow"></div>
+              </div>
+            </div>
+            <!-- Chat -->
+
+            <!-- Chat input -->
+            <div class="chat-input">
+              <i class="fa-regular fa-face-smile"></i>
+              <input type="text" placeholder="Scrivi un messaggio" />
+              <i class="fa-solid fa-microphone"></i>
+            </div>
+            <!-- / Chat input -->
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- JS -->
+    <script type="module" src="./js/script.js"></script>
+  </body>
+</html>
