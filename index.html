@@ -69,6 +69,7 @@
                 <input
                   type="text"
                   placeholder="Cerca o inizia una nuova chat"
+                  v-model="contactToSearch"
                 />
               </div>
             </div>
@@ -79,7 +80,7 @@
               <!-- Chat list item -->
               <div
                 class="chat-preview container-sm"
-                v-for="(contact, contactId) in contacts"
+                v-for="(contact, contactId) in contactsFiltered"
                 @click="activeContactId = contactId"
               >
                 <div class="photo">
@@ -109,18 +110,18 @@
               <div class="chat-info">
                 <div class="photo">
                   <img
-                    :src="`./assets/${contacts[activeContactId].avatar}`"
-                    :alt="contacts[activeContactId].name"
+                    :src="`./assets/${contactsFiltered[activeContactId].avatar}`"
+                    :alt="contactsFiltered[activeContactId].name"
                   />
                 </div>
                 <div>
                   <div class="chat-name">
-                    <strong>{{contacts[activeContactId].name}}</strong>
+                    <strong>{{contactsFiltered[activeContactId].name}}</strong>
                   </div>
                   <!-- TODO: sistemare formato data ultimo messaggio -->
                   <div class="last-access text-sm">
                     Ultimo accesso oggi alle
-                    {{contacts[activeContactId].messages[contacts[activeContactId].messages.length
+                    {{contactsFiltered[activeContactId].messages[contactsFiltered[activeContactId].messages.length
                     -1].date}}
                   </div>
                 </div>
@@ -138,7 +139,7 @@
             <!-- Chat -->
             <div class="chat">
               <div
-                v-for="messageItem in contacts[activeContactId].messages"
+                v-for="messageItem in contactsFiltered[activeContactId].messages"
                 class="msg"
                 :class="(messageItem.status === 'sent' ? 'sent' : 'received')"
               >

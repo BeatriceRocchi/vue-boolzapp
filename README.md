@@ -40,3 +40,7 @@ Riproduzione del layout di WhatsApp in modalità responsive e inserimento elemen
 10. Nella funzione addMessage dichiarare un oggetto con le proprietà date, message e status (analogamente alla struttura dei messaggi forniti come db) e assegnare a message il valore messageInputText e a status sent
 11. Nella funzione addMessage, aggiungere con push il nuovo oggetto appena creato all'array dei messaggi della chat del contatto attivo. Dopo aver pushato, resettare il messaggio inserito nell'input
 12. Nella funzione addMessage, dopo aver pushato il nuovo messaggio, con setTimeout richiamare una funzione addResponse che dopo 1 secondo aggiunge all'array dei messaggi della chat del contatto attivo un ulteriore messaggio. Il messaggio sarà un oggetto con le proprietà date, message (ok) e status (received)
+13. Dichiarare in data una variabile contactToSearch da inizializzare come stringa vuota
+14. Aggiungere all'input della searchbar un v-model con contactToSearch
+15. In computed, predisporre una funzione contactsFiltered che filtra la lista di contatti e restituisce i contatti che contengono nel nome la stringa di input
+16. Sostituire contacts con contactsFiltered ogni volta che è stato richiamato nell'html (es. nel ciclo v-for di stampa delle chat (punto 1), nel ciclo v-for di stampa dei messaggi (punto 2))

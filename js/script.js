@@ -8,6 +8,7 @@ createApp({
       contacts,
       activeContactId: 0,
       messageInputText: "",
+      contactToSearch: "",
     };
   },
 
@@ -35,6 +36,14 @@ createApp({
       };
 
       this.contacts[this.activeContactId].messages.push(responseToAdd);
+    },
+  },
+
+  computed: {
+    contactsFiltered() {
+      return this.contacts.filter((contact, contactId) =>
+        contact.name.toLowerCase().includes(this.contactToSearch.toLowerCase())
+      );
     },
   },
 }).mount("#app");
