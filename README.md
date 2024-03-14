@@ -35,3 +35,7 @@ Riproduzione del layout di WhatsApp in modalità responsive e inserimento elemen
 5. Al @click sul contatto, la variabile activeContactId assumerà il valore di contactId
 6. Al ciclo di stampa dei messaggi (punto 2), passare come indice dell'array contacts il valore di activeContactId
 7. Sopra i messaggi nel pannello della conversazione, passare dinamicamente le proprietà del contatto 'attivo' activeContactId
+8. Dichiarare in data una variabile messageInput da inizializzare come stringa vuota
+9. Aggiungere all'input nel pannello della conversione un v-model con messageInputText e al @keyup.enter attivare la funzione addMessage passando come parametri il testo del messaggio da aggiungere (messageInputText) e il contatto attivo su cui aggiungere il messaggio (activeContactId)
+10. Nella funzione addMessage dichiarare un oggetto con le proprietà date, message e status (analogamente alla struttura dei messaggi forniti come db) e assegnare a message il valore messageInputText e a status sent
+11. Nella funzione addMessage, aggiungere con push il nuovo oggetto appena creato all'array dei messaggi della chat del contatto attivo. DOpo aver pushato, resettare il messaggio inserito nell'input
