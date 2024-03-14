@@ -149,10 +149,16 @@
                   <div class="msg-hour text-xs">{{messageItem.date}}</div>
                 </div>
                 <div class="msg-option">
-                  <i class="fa-solid fa-chevron-down"></i>
-                  <div class="msg-info text-sm active">
-                    <div>Info messaggio</div>
-                    <div>Cancella messaggio</div>
+                  <i
+                    @click="toggleOptions(messageItem)"
+                    class="fa-solid fa-chevron-down"
+                  ></i>
+                  <div
+                    v-if="messageItem.isMessageClicked"
+                    class="msg-info text-sm active"
+                  >
+                    <div>Message info</div>
+                    <div>Delete message</div>
                   </div>
                 </div>
                 <div class="msg-arrow"></div>

@@ -335,7 +335,7 @@ i {
   display: none;
 }
 
-.chat .msg-option:hover .msg-info {
+.chat .msg-option .msg-info {
   display: block;
   position: absolute;
   right: 10px;

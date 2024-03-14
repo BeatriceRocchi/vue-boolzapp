@@ -44,3 +44,6 @@ Riproduzione del layout di WhatsApp in modalità responsive e inserimento elemen
 14. Aggiungere all'input della searchbar un v-model con contactToSearch
 15. In computed, predisporre una funzione contactsFiltered che filtra la lista di contatti e restituisce i contatti che contengono nel nome la stringa di input
 16. Sostituire contacts con contactsFiltered ogni volta che è stato richiamato nell'html (es. nel ciclo v-for di stampa delle chat (punto 1), nel ciclo v-for di stampa dei messaggi (punto 2))
+17. Al @click sulla chevron di ciascun messaggio richiamare la funzione toggleOptions a cui viene passato come parametro l'oggetto messageItem su cui sta ciclando il v-for
+18. La funzione toggleOptions aggiunge al messageItem la proprietà isMessageClicked con valore true e, se è già presente, la elimina
+19. Inserire una condizione v-if nell'elemento html con le opzioni del messaggio per mostrare le opzioni solo se messageItem ha la proprietà isMessageClicked con valore true

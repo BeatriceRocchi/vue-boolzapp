@@ -37,13 +37,23 @@ createApp({
 
       this.contacts[this.activeContactId].messages.push(responseToAdd);
     },
+
+    toggleOptions(messageItem) {
+      if (messageItem.isMessageClicked === true) {
+        delete messageItem.isMessageClicked;
+      } else {
+        messageItem.isMessageClicked = true;
+      }
+    },
   },
 
   computed: {
     contactsFiltered() {
-      return this.contacts.filter((contact, contactId) =>
+      return this.contacts.filter((contact) =>
         contact.name.toLowerCase().includes(this.contactToSearch.toLowerCase())
       );
     },
   },
 }).mount("#app");
+
+// TODO: verificare con quale logica mostrare chat a destra quando si fa ricerca (sempre ultima cliccata?)
