@@ -202,6 +202,11 @@ i {
   position: relative;
 }
 
+.chat-list .chat-preview:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary-medium);
+}
+
 .chat-list .chat-preview:last-child {
   border-bottom: 0.8px solid var(--color-secondary-medium);
 }
