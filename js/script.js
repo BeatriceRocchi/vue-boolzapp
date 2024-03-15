@@ -10,6 +10,7 @@ createApp({
       activeContactId: 0,
       messageInputText: "",
       contactToSearch: "",
+      isDarkMode: false,
     };
   },
 
@@ -48,8 +49,11 @@ createApp({
       }
     },
 
-    deleteMessage(activeContactId, messageItemId) {
-      this.contactsFiltered[activeContactId].messages.splice(messageItemId, 1);
+    deleteMessage(messageItemId) {
+      this.contactsFiltered[this.activeContactId].messages.splice(
+        messageItemId,
+        1
+      );
     },
 
     formatDate() {
@@ -63,6 +67,12 @@ createApp({
         });
       });
     },
+
+    // toggleDarkMode() {
+    //   this.isDarkMode = !this.isDarkMode;
+    //   console.log("darkmode");
+
+    // },
   },
 
   computed: {

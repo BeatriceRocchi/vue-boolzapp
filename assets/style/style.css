@@ -269,6 +269,7 @@ i {
   overflow-y: scroll;
   height: calc(100% - 140px);
   padding: 50px 95px;
+  background-color: var(--color-black);
   background-image: url(../img/mine.jpg);
   display: flex;
   flex-direction: column;
@@ -477,12 +478,12 @@ i {
 }
 
 /* ---- DARKMODE ---- */
-body.darkmode {
-  color: var(--color-white);
-  background: var(--color-dm-tertiary);
+.fa-moon:hover {
+  cursor: pointer;
 }
-
-.darkmode i {
+.darkmode,
+.darkmode .notification .text-underline,
+.darkmode input {
   color: var(--text-color-light);
 }
 
@@ -521,14 +522,6 @@ body.darkmode {
     url(../img/mine-dark.png);
 }
 
-.darkmode .notification .text-underline,
-.darkmode .chat-preview .chat-text,
-.darkmode .chat-preview .chat-hour,
-.darkmode .chat-selected .last-access,
-.darkmode input {
-  color: var(--text-color-light);
-}
-
 .darkmode .searchbar {
   border: none;
 }
@@ -547,10 +540,21 @@ body.darkmode {
   border-top: 10px solid var(--color-dm-secondary);
 }
 
-.darkmode .chat .msg-option:hover .msg-info {
+.darkmode .chat .msg-option .msg-info {
   background-color: var(--color-dm-secondary-dark);
   color: var(--color-secondary-light);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.darkmode .delete-message:hover,
+.darkmode .info-message:hover {
+  cursor: pointer;
+  background-color: var(--color-dm-tertiary);
+}
+
+.darkmode .chat-list .chat-preview:hover,
+.darkmode .active {
+  background-color: var(--color-dm-quaternary);
 }
 
 /* Scrollbar */

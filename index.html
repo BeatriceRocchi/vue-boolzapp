@@ -31,10 +31,11 @@
 
     <title>Boolzapp</title>
   </head>
+
   <body>
     <!-- Note: Insert in the body the class="darkmode" to change the view -->
     <div id="app">
-      <main>
+      <main :class="{'darkmode' : isDarkMode}">
         <div class="container">
           <!-- Left -->
           <div class="left">
@@ -43,8 +44,21 @@
               <div class="photo">
                 <img src="./assets/img/avatar_io.jpg" alt="User photo" />
               </div>
+
               <nav class="menu-box">
                 <ul class="menu">
+                  <li v-if="!isDarkMode">
+                    <i
+                      class="fa-solid fa-moon"
+                      @click="isDarkMode = !this.isDarkMode"
+                    ></i>
+                  </li>
+                  <li v-else>
+                    <i
+                      class="fa-solid fa-sun"
+                      @click="isDarkMode = !this.isDarkMode"
+                    ></i>
+                  </li>
                   <li><i class="fa-solid fa-circle-notch"></i></li>
                   <li><i class="fa-solid fa-message"></i></li>
                   <li><i class="fa-solid fa-ellipsis-vertical"></i></li>
@@ -168,7 +182,7 @@
                     <div class="info-message">Message info</div>
                     <div
                       class="delete-message"
-                      @click="deleteMessage(activeContactId, messageItemId)"
+                      @click="deleteMessage(messageItemId)"
                     >
                       Delete message
                     </div>
