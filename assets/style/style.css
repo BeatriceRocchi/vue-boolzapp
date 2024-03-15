@@ -285,11 +285,15 @@ i {
   position: relative;
 }
 
-.chat .msg .fa-chevron-down {
+.fa-chevron-down {
   display: none;
 }
 
-.chat .msg:hover .fa-chevron-down {
+.msg:hover .fa-chevron-down {
+  display: block;
+}
+
+.chevron-visible {
   display: block;
 }
 
@@ -330,7 +334,8 @@ i {
   overflow: hidden;
 }
 
-.delete-message:hover, .info-message:hover {
+.delete-message:hover,
+.info-message:hover {
   cursor: pointer;
   background-color: var(--color-secondary-medium);
 }

@@ -159,6 +159,7 @@
                   <i
                     @click="toggleOptions(messageItem)"
                     class="fa-solid fa-chevron-down"
+                    :class="{'chevron-visible' : messageItem.isMessageClicked}"
                   ></i>
                   <div
                     v-if="messageItem.isMessageClicked"
