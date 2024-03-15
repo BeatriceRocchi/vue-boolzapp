@@ -97,11 +97,14 @@
                 <div class="chat-textbox">
                   <div class="chat-name"><strong>{{contact.name}}</strong></div>
                   <div class="chat-text text-sm">
-                    {{contact.messages[contact.messages.length - 1].message}}
+                    {{contact.messages[contact.messages.length - 1] ?
+                    contact.messages[contact.messages.length - 1].message :
+                    'Nessun messaggio'}}
                   </div>
                   <!-- TODO: sistemare formato data ultimo messaggio -->
                   <div class="chat-hour text-sm container-sm">
-                    {{contact.messages[contact.messages.length - 1].date}}
+                    {{contact.messages[contact.messages.length - 1] ?
+                    contact.messages[contact.messages.length - 1].date : ''}}
                   </div>
                 </div>
               </div>
@@ -123,11 +126,9 @@
                   <div class="chat-name">
                     <strong>{{contactsFiltered[activeContactId].name}}</strong>
                   </div>
-                  <!-- TODO: sistemare formato data ultimo messaggio -->
+                  <!-- TODO: sistemare formato data ultimo accesso -->
                   <div class="last-access text-sm">
-                    Ultimo accesso oggi alle
-                    {{contactsFiltered[activeContactId].messages[contactsFiltered[activeContactId].messages.length
-                    -1].date}}
+                    Ultimo accesso oggi alle 12:00
                   </div>
                 </div>
               </div>
@@ -142,10 +143,7 @@
             <!-- / Chat selected info -->
 
             <!-- Chat -->
-            <div
-              class="chat"
-              v-if="contactsFiltered[activeContactId].messages.length > 0"
-            >
+            <div class="chat">
               <div
                 v-for="(messageItem, messageItemId) in contactsFiltered[activeContactId].messages"
                 class="msg"
