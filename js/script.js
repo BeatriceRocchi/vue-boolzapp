@@ -16,7 +16,7 @@ createApp({
   methods: {
     addMessage(messageInputText) {
       const messageToAdd = {
-        date: DateTime.now().setLocale("it").toFormat("dd/MM hh:mm:ss"),
+        date: DateTime.now().setLocale("it").toFormat("dd/MM HH:mm:ss"),
         message: messageInputText,
         status: "sent",
       };
@@ -29,7 +29,7 @@ createApp({
 
     addResponse() {
       const responseToAdd = {
-        date: DateTime.now().setLocale("it").toFormat("dd/MM hh:mm:ss"),
+        date: DateTime.now().setLocale("it").toFormat("dd/MM HH:mm:ss"),
         message: "Ok",
         status: "received",
       };
@@ -48,6 +48,18 @@ createApp({
     deleteMessage(activeContactId, messageItemId) {
       this.contactsFiltered[activeContactId].messages.splice(messageItemId, 1);
     },
+
+    formatDate() {
+      this.contacts.forEach((contact) => {
+        contact.messages.forEach((message) => {
+          const messageString = message.date;
+          message.date = DateTime.fromFormat(
+            `${messageString}`,
+            "dd/MM/yyyy HH:mm:ss"
+          ).toFormat("dd/MM HH:mm:ss");
+        });
+      });
+    },
   },
 
   computed: {
@@ -56,5 +68,9 @@ createApp({
         contact.name.toLowerCase().includes(this.contactToSearch.toLowerCase())
       );
     },
+  },
+
+  mounted() {
+    this.formatDate();
   },
 }).mount("#app");

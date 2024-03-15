@@ -366,6 +366,7 @@ i {
 .delete-message:hover {
   cursor: pointer;
   background-color: var(--color-secondary-medium);
+  border-radius: 5px;
 }
 
 /* Chat input */
