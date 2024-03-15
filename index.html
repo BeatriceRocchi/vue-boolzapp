@@ -20,6 +20,9 @@
       crossorigin="anonymous"
     />
 
+    <!-- Luxon -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+
     <!-- VueJS -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -70,6 +73,7 @@
                   type="text"
                   placeholder="Cerca o inizia una nuova chat"
                   v-model="contactToSearch"
+                  @keyup="activeContactId = 0"
                 />
               </div>
             </div>
@@ -173,7 +177,7 @@
                 <div class="msg-arrow"></div>
               </div>
             </div>
-            
+
             <!-- Chat -->
 
             <!-- Chat input -->

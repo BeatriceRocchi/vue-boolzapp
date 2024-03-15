@@ -1,5 +1,6 @@
 import contacts from "./db.js";
 
+const DateTime = luxon.DateTime;
 const { createApp } = Vue;
 
 createApp({
@@ -14,28 +15,26 @@ createApp({
 
   methods: {
     addMessage(messageInputText) {
-      // TODO: sistemare formato data messaggio
       const messageToAdd = {
-        date: "TBD",
+        date: DateTime.now().setLocale("it").toFormat("dd/MM hh:mm:ss"),
         message: messageInputText,
         status: "sent",
       };
 
-      this.contacts[this.activeContactId].messages.push(messageToAdd);
+      this.contactsFiltered[this.activeContactId].messages.push(messageToAdd);
       this.messageInputText = "";
 
       setTimeout(this.addResponse, 1000);
     },
 
     addResponse() {
-      // TODO: sistemare formato data messaggio
       const responseToAdd = {
-        date: "TBD",
+        date: DateTime.now().setLocale("it").toFormat("dd/MM hh:mm:ss"),
         message: "Ok",
         status: "received",
       };
 
-      this.contacts[this.activeContactId].messages.push(responseToAdd);
+      this.contactsFiltered[this.activeContactId].messages.push(responseToAdd);
     },
 
     toggleOptions(messageItem) {
