@@ -81,6 +81,7 @@
               <div
                 class="chat-preview container-sm"
                 v-for="(contact, contactId) in contactsFiltered"
+                :class="{'active' : contactId === activeContactId}"
                 @click="activeContactId = contactId"
               >
                 <div class="photo">
@@ -137,9 +138,12 @@
             <!-- / Chat selected info -->
 
             <!-- Chat -->
-            <div class="chat">
+            <div
+              class="chat"
+              v-if="contactsFiltered[activeContactId].messages.length > 0"
+            >
               <div
-                v-for="messageItem in contactsFiltered[activeContactId].messages"
+                v-for="(messageItem, messageItemId) in contactsFiltered[activeContactId].messages"
                 class="msg"
                 :class="(messageItem.status === 'sent' ? 'sent' : 'received')"
               >
@@ -158,12 +162,18 @@
                     class="msg-info text-sm active"
                   >
                     <div>Message info</div>
-                    <div>Delete message</div>
+                    <div
+                      class="delete-message"
+                      @click="deleteMessage(activeContactId, messageItemId)"
+                    >
+                      Delete message
+                    </div>
                   </div>
                 </div>
                 <div class="msg-arrow"></div>
               </div>
             </div>
+            
             <!-- Chat -->
 
             <!-- Chat input -->

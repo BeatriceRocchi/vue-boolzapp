@@ -207,6 +207,11 @@ i {
   background-color: var(--color-secondary-medium);
 }
 
+.active {
+  cursor: pointer;
+  background-color: var(--color-secondary-medium);
+}
+
 .chat-list .chat-preview:last-child {
   border-bottom: 0.8px solid var(--color-secondary-medium);
 }
@@ -280,6 +285,14 @@ i {
   position: relative;
 }
 
+.chat .msg .fa-chevron-down {
+  display: none;
+}
+
+.chat .msg:hover .fa-chevron-down {
+  display: block;
+}
+
 .chat .msg .msg-arrow {
   width: 0;
   height: 0;
@@ -348,6 +361,11 @@ i {
   line-height: 30px;
   border-radius: 5px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.delete-message:hover {
+  cursor: pointer;
+  background-color: var(--color-secondary-medium);
 }
 
 /* Chat input */
