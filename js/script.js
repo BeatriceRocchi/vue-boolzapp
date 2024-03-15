@@ -11,6 +11,7 @@ createApp({
       messageInputText: "",
       contactToSearch: "",
       isDarkMode: false,
+      responses: ["Ok", "Perfetto!", "Chiamami","Non posso rispondere adesso"],
     };
   },
 
@@ -33,11 +34,17 @@ createApp({
     addResponse() {
       const responseToAdd = {
         date: DateTime.now().setLocale("it").toFormat("dd/MM HH:mm:ss"),
-        message: "Ok",
+        message: this.randomResponse(),
         status: "received",
       };
 
       this.contactsFiltered[this.activeContactId].messages.push(responseToAdd);
+    },
+
+    //Funzione di randomizzazione della risposta
+    randomResponse() {
+      let index = Math.floor(Math.random() * (this.responses.length));
+      return this.responses[index];
     },
 
     //Logica per mappare il messaggio della chat cliccato: al click su un messaggio aggiungo la proprietà isMessageClicked (booleano con valore true) e la metto false a tutti gli altri (ciclo forEach) perchè deve aprirsi un solo menu a tendina alla volta. Se il messaggio che clicco ha già la proprietà true allora cambio ill valore in false (vuol dire che ho cliccato per chiudere la tendina)
