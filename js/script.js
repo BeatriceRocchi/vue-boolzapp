@@ -15,6 +15,7 @@ createApp({
   },
 
   methods: {
+    //Aggiunta messaggio (oggetto) nell'array dei messaggi della chat del contatto attivo, reset dell'input e attivazione dopo 1s della funzione di risposta automatica
     addMessage(messageInputText) {
       const messageToAdd = {
         date: DateTime.now().setLocale("it").toFormat("dd/MM HH:mm:ss"),
@@ -28,6 +29,7 @@ createApp({
       setTimeout(this.addResponse, 1000);
     },
 
+    //Risposta automatica con aggiunta del messaggio di risposta nell'array dei messaggi della chat del contatto attivo
     addResponse() {
       const responseToAdd = {
         date: DateTime.now().setLocale("it").toFormat("dd/MM HH:mm:ss"),
@@ -38,9 +40,10 @@ createApp({
       this.contactsFiltered[this.activeContactId].messages.push(responseToAdd);
     },
 
+    //Logica per mappare il messaggio della chat cliccato: al click su un messaggio aggiungo la proprietà isMessageClicked (booleano con valore true) e la metto false a tutti gli altri (ciclo forEach) perchè deve aprirsi un solo menu a tendina alla volta. Se il messaggio che clicco ha già la proprietà true allora cambio ill valore in false (vuol dire che ho cliccato per chiudere la tendina)
     toggleOptions(messageItem) {
       if (messageItem.isMessageClicked === true) {
-        delete messageItem.isMessageClicked;
+        messageItem.isMessageClicked = false;
       } else {
         this.contactsFiltered[this.activeContactId].messages.forEach(
           (message) => (message.isMessageClicked = false)
@@ -49,6 +52,7 @@ createApp({
       }
     },
 
+    //Eliminazione messaggio
     deleteMessage(messageItemId) {
       this.contactsFiltered[this.activeContactId].messages.splice(
         messageItemId,
@@ -56,6 +60,7 @@ createApp({
       );
     },
 
+    //Formattazione di tutte le date nel db: ciclo tutti i contatti e per ciascun contatto ciclo tutti i messaggi. Per ogni messaggio sfrutto libreria Luxon per passare da un formato generico dato (fromFormat) al formato che voglio mostrare
     formatDate() {
       this.contacts.forEach((contact) => {
         contact.messages.forEach((message) => {
@@ -67,12 +72,6 @@ createApp({
         });
       });
     },
-
-    // toggleDarkMode() {
-    //   this.isDarkMode = !this.isDarkMode;
-    //   console.log("darkmode");
-
-    // },
   },
 
   computed: {
@@ -84,6 +83,7 @@ createApp({
   },
 
   mounted() {
+    //Al caricamento della pagina, richiamo subito la funzione che formattare le date
     this.formatDate();
   },
 }).mount("#app");

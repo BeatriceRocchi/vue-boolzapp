@@ -478,9 +478,10 @@ i {
 }
 
 /* ---- DARKMODE ---- */
-.fa-moon:hover {
+.fa-moon:hover, .fa-sun:hover {
   cursor: pointer;
 }
+
 .darkmode,
 .darkmode .notification .text-underline,
 .darkmode input {
