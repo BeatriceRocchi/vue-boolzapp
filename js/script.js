@@ -41,6 +41,9 @@ createApp({
       if (messageItem.isMessageClicked === true) {
         delete messageItem.isMessageClicked;
       } else {
+        this.contactsFiltered[this.activeContactId].messages.forEach(
+          (message) => (message.isMessageClicked = false)
+        );
         messageItem.isMessageClicked = true;
       }
     },

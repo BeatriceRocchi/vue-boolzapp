@@ -293,40 +293,6 @@ i {
   display: block;
 }
 
-.chat .msg .msg-arrow {
-  width: 0;
-  height: 0;
-  position: absolute;
-}
-
-.chat .msg.sent .msg-arrow {
-  right: -6px;
-  bottom: 35px;
-}
-
-.chat .msg.received .msg-arrow {
-  left: -20px;
-  bottom: 37px;
-}
-
-.chat .msg .msg-arrow::after {
-  content: "";
-  position: absolute;
-  border-radius: 0 25px 0;
-  width: 15px;
-  height: 35px;
-}
-
-.chat .msg.sent .msg-arrow::after {
-  border-top: 10px solid var(--color-primary-light);
-  transform: rotate(45deg) scaleY(-1);
-}
-
-.chat .msg.received .msg-arrow::after {
-  border-top: 10px solid var(--color-white);
-  transform: rotate(145deg);
-}
-
 .chat .msg.sent {
   background-color: var(--color-primary-light);
   align-self: end;
@@ -361,12 +327,47 @@ i {
   line-height: 30px;
   border-radius: 5px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-.delete-message:hover {
+.delete-message:hover, .info-message:hover {
   cursor: pointer;
   background-color: var(--color-secondary-medium);
-  border-radius: 5px;
+}
+
+/* Ballon shape */
+.chat .msg .msg-arrow {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.chat .msg.sent .msg-arrow {
+  right: -6px;
+  bottom: 35px;
+}
+
+.chat .msg.received .msg-arrow {
+  left: -20px;
+  bottom: 37px;
+}
+
+.chat .msg .msg-arrow::after {
+  content: "";
+  position: absolute;
+  border-radius: 0 25px 0;
+  width: 15px;
+  height: 35px;
+}
+
+.chat .msg.sent .msg-arrow::after {
+  border-top: 10px solid var(--color-primary-light);
+  transform: rotate(45deg) scaleY(-1);
+}
+
+.chat .msg.received .msg-arrow::after {
+  border-top: 10px solid var(--color-white);
+  transform: rotate(145deg);
 }
 
 /* Chat input */
